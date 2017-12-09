@@ -1,0 +1,29 @@
+{
+  "name": "gcoder",
+  "version": "0.0.1",
+  "description": "基于数据库结构的代码生成器",
+  "homepage": "https://github.com/laborchu/gcoder",
+  "author": {
+    "name": "hulb",
+    "email": "laborc2009@gmail.com",
+    "url": "https://github.com/laborchu"
+  },
+  "main": "index.js",
+  "keywords": [
+    "code generator"
+  ],
+  "bin": {
+    "bcode": "./bin/gcoder-cli"
+  },
+  "dependencies": {
+    "chalk": "^1.0.0",
+    "class-extend": "^0.1.2",
+    "commander": "^2.9.0",
+    "es6-template-string": "^1.1.0",
+    "lodash": "^4.17.4",
+    "mkdirp": "^0.5.1",
+    "mysql": "^2.15.0",
+    "npm-update": "~1.0.2"
+  },
+  "license": "Apache-2.0"
+}

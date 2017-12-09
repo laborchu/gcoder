@@ -1,0 +1,55 @@
+#!/usr/bin/env node
+
+'use strict';
+var program = require('commander');
+var pkg = require('../package');
+var execSync = require('child_process').execSync;
+
+var Logger = require('../lib/logger');
+var GenHandler = require('../lib/gen.handler');
+var InitHandler = require('../lib/init.handler');
+var Logger = require('../lib/logger');
+
+var hanlder = null;
+program
+  .version(pkg.version)
+  .option('--verbose', '查看更多的debug信息');
+
+program
+  .command('gen <template>')
+  .description('生成代码')
+  .option("-t, --table [table]", "指定数据表生成")
+  .action(function (template, options) {
+    hanlder = new GenHandler({
+      template:template,
+      tables:options.table,
+    });
+  });
+
+program
+  .command('init')
+  .description('初始化文件')
+  .action(function (options) {
+    hanlder = new InitHandler(options.platform);
+  });
+
+program.parse(process.argv);
+
+// let exeStr = `npm view ${pkg.name} version`;
+// let npmVersion = execSync(exeStr).toString();
+// if (npmVersion &&  pkg.version !== npmVersion.trim()) {
+//   Logger.info(`version ${pkg.version} is outdate`);
+//   Logger.info(`run: npm i -g ${pkg.name}@${npmVersion}`);
+//   return;
+// }
+
+if (!hanlder) {
+  var cmd = program.args[0];
+  if (cmd !== undefined) {
+    Logger.error(`command ${cmd} not found`);
+  }
+  program.help();
+  return;
+}
+
+hanlder.do();
