@@ -1,0 +1,15 @@
+{
+  "gcoder": "",
+  "db": {
+    "host": "",
+    "port": "",
+    "database": "",
+    "username": "",
+    "password": "",
+    "dialect": "postgres|mysql|sqlite|mssql"
+  },
+  "splitChat": "", //表名称和字段切分字符，默认_
+  "plugins": [
+    "rename"
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "name": "gcoder",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "基于数据库结构的代码生成器",
   "homepage": "https://github.com/laborchu/gcoder",
   "author": {
@@ -13,7 +13,7 @@
     "code generator"
   ],
   "bin": {
-    "bcode": "./bin/gcoder"
+    "gcoder": "./bin/gcoder"
   },
   "dependencies": {
     "chalk": "^1.0.0",
