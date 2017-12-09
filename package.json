@@ -13,7 +13,7 @@
     "code generator"
   ],
   "bin": {
-    "bcode": "./bin/gcoder-cli"
+    "bcode": "./bin/gcoder"
   },
   "dependencies": {
     "chalk": "^1.0.0",
@@ -23,7 +23,8 @@
     "lodash": "^4.17.4",
     "mkdirp": "^0.5.1",
     "mysql": "^2.15.0",
-    "npm-update": "~1.0.2"
+    "npm-update": "~1.0.2",
+    "simple-git": "^1.85.0"
   },
   "license": "Apache-2.0"
 }

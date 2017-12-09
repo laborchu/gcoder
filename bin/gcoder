@@ -6,8 +6,9 @@ var pkg = require('../package');
 var execSync = require('child_process').execSync;
 
 var Logger = require('../lib/logger');
-var GenHandler = require('../lib/gen.handler');
-var InitHandler = require('../lib/init.handler');
+var GenHandler = require('../lib/handler/gen.handler');
+var InitHandler = require('../lib/handler/init.handler');
+var GCoderHandler = require('../lib/handler/gcoder.handler');
 var Logger = require('../lib/logger');
 
 var hanlder = null;
@@ -23,6 +24,26 @@ program
     hanlder = new GenHandler({
       template:template,
       tables:options.table,
+    });
+  });
+
+  program
+  .command('add <url>')
+  .description('添加gcoder')
+  .action(function (url, options) {
+    hanlder = new GCoderHandler({
+      op:"add",
+      url:url,
+    });
+  });
+
+
+  program
+  .command('list')
+  .description('list gcoder')
+  .action(function (url, options) {
+    hanlder = new GCoderHandler({
+      op:"list",
     });
   });
 
