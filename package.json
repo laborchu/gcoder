@@ -1,6 +1,6 @@
 {
   "name": "gcoder",
-  "version": "0.0.4",
+  "version": "0.0.8",
   "description": "基于数据库结构的代码生成器",
   "homepage": "https://github.com/laborchu/gcoder",
   "author": {
@@ -9,6 +9,9 @@
     "url": "https://github.com/laborchu"
   },
   "main": "index.js",
+  "scripts": {
+    "postinstall": "gcoder init coder"
+  },  
   "keywords": [
     "code generator"
   ],
@@ -23,6 +26,7 @@
     "lodash": "^4.17.4",
     "mkdirp": "^0.5.1",
     "mysql": "^2.15.0",
+    "ncp": "^2.0.0",
     "npm-update": "~1.0.2",
     "simple-git": "^1.85.0"
   },

@@ -11,20 +11,17 @@ var InitHandler = require('../lib/handler/init.handler');
 var GCoderHandler = require('../lib/handler/gcoder.handler');
 var Logger = require('../lib/logger');
 
-var {Plugin} = require('gcoder');
-
 var hanlder = null;
 program
   .version(pkg.version)
   .option('--verbose', 'more debug info');
 
 program
-  .command('gen <template>')
+  .command('gen')
   .description('generate code')
   .option("-t, --table [table]", "specify table")
-  .action(function (template, options) {
+  .action(function (options) {
     hanlder = new GenHandler({
-      template:template,
       tables:options.table,
     });
   });
@@ -50,10 +47,10 @@ program
   });
 
 program
-  .command('init')
-  .description('init .gcoder.json')
-  .action(function (options) {
-    hanlder = new InitHandler(options.platform);
+  .command('init <op>')
+  .description('init gcoder,op in (json,coder)')
+  .action(function (op,options) {
+    hanlder = new InitHandler(op);
   });
 
 program.parse(process.argv);
