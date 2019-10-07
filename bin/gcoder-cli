@@ -20,9 +20,11 @@ program
   .command('gen')
   .description('generate code')
   .option("-t, --table [table]", "specify table")
+  .option("-c, --config [config]", "specify config file")
   .action(function (options) {
     hanlder = new GenHandler({
       tables:options.table,
+      config:options.config,
     });
   });
 
